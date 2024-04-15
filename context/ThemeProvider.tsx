@@ -19,12 +19,21 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState("light");
 
   const handleThemeChange = () => {
-    // setTheme(theme === "light" ? "dark" : "light");
+    const isDark = localStorage.theme === "dark";
+    const ifNotExist = !("theme" in localStorage);
+    const windowTheme = window.matchMedia(
+      "(prefers-color-scheme: dark)"
+    ).matches;
+
+    if (isDark || (ifNotExist && windowTheme)) {
+      setTheme("dark");
+    }
     document.documentElement.classList.toggle("dark");
-    // document.documentElement.classList.add("dark");
   };
 
   useEffect(handleThemeChange, [theme]);
+
+  console.log("theme", theme);
 
   return (
     <ThemeContext.Provider value={{ theme, setTheme }}>
