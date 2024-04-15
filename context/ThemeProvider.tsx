@@ -19,7 +19,7 @@ export function ThemeProvider({ children }: { children: ReactNode }) {
   const [theme, setTheme] = useState("light");
 
   const handleThemeChange = () => {
-    setTheme(theme === "light" ? "dark" : "light");
+    // setTheme(theme === "light" ? "dark" : "light");
     document.documentElement.classList.toggle("dark");
     // document.documentElement.classList.add("dark");
   };
