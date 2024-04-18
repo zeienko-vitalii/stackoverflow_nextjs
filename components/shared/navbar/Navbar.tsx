@@ -4,7 +4,7 @@ import React from "react";
 import { SignedIn, UserButton } from "@clerk/nextjs";
 import Theme from "./Theme";
 import MobileNav from "./MobileNav";
-import GlobalSearch from "../search/GlobalSearch";
+import GlobalSearch from "@/components/shared/search/GlobalSearch";
 
 const Navbar = () => {
   return (
